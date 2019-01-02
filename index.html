@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+
+<h1>52 Podcasts</h1>
+<p>Challenge to try a new podcast a week for all 2019.</p>
+
+<p>Each podcast will be rated as:<br>
+🥰 Loved--😄 Enjoyed--🙂 Liked--😕 Meh--😴 Snooze</p>
+
+<p>Want to start your own list? Message me on Twitter <a href="https://twitter.com/hannahpixels">@hannahpixels</a> or fork this repo on <a href="https://github.com/hannahd/52podcasts">GitHub</a>.</p>
+
+<div>
+{% for podcast in site.data.hp_podcasts %}
+  <div>
+    {{forloop.index}} -
+    {{ podcast.name }}
+
+  </div>
+{% endfor %}
+</div>
