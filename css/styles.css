@@ -395,7 +395,7 @@ th {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
-    padding: 3em;
+    padding: 2em;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 0; }
 
@@ -411,7 +411,7 @@ th {
 
   h2 {
     text-align: center;
-    padding: .5em 3em; } }
+    padding: .5em 2em; } }
 @media (max-width: 320px) {
   .podcast-row,
   .header-row {
