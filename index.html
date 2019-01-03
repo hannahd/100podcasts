@@ -1,22 +1,68 @@
 ---
 layout: default
+current-number: 2
 ---
+<div class="row">
+  <div class="two columns">
+    <h1 class="logo">100</h1>
+  </div>
+  <div class="ten columns">
+    <h1>Podcasts</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="two columns">
+    &nbsp;
+  </div>
+  <div class="ten columns">
+  <p>Challenge to try a new podcast a week for all 2019.</p>
 
+  <p>Each podcast will be rated as:<br>
+  🥰 Loved--😄 Enjoyed--🙂 Liked--😕 Meh--😴 Snooze</p>
 
-<h1>52 Podcasts</h1>
-<p>Challenge to try a new podcast a week for all 2019.</p>
+  <p>Want to start your own list? Message me on Twitter <a href="https://twitter.com/hannahpixels">@hannahpixels</a> or fork this repo on <a href="https://github.com/hannahd/52podcasts">GitHub</a>.</p>
+  </div>
+</div>
 
-<p>Each podcast will be rated as:<br>
-🥰 Loved--😄 Enjoyed--🙂 Liked--😕 Meh--😴 Snooze</p>
+<h2>🎧 Currently Trying #{{page.current-number }}</h2>
 
-<p>Want to start your own list? Message me on Twitter <a href="https://twitter.com/hannahpixels">@hannahpixels</a> or fork this repo on <a href="https://github.com/hannahd/52podcasts">GitHub</a>.</p>
+{% assign index = page.current-number | minus:1 %}
+{% assign cur_podcast = site.data.podcasts[index] %}
+<div class="row">
+  <div class="two columns">
+    <a href="{{ cur_podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ cur_podcast.image }}" width="100%"/></a>
+  </div>
+  <div class="ten columns">
+    <h3> <a href="{{ cur_podcast.url }}" target="_blank">{{ cur_podcast.name }}</a></h3>
+    <p>{{ cur_podcast.tag}}</p>
+    <p>{{cur_podcast.description}}</p>
+  </div>
+</div>
 
+<h2>📝 100 Podcasts for 2019 <em>(subject to change)</em></h2>
+{% for podcast in site.data.podcasts %}
+  <div  class="row">
+
+    <div class="two columns">
+      <a href="{{ podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ podcast.image }}" width="100%"/></a>
+    </div>
+    <div class="ten columns">
+      <p># {{forloop.index}}</p>
+      <h3> <a href="{{ podcast.url }}" target="_blank">{{ podcast.name }}</a></h3>
+      <p>{{ podcast.tag}}</p>
+      <p>{{ podcast.description}}</p>
+    </div>
+
+  </div>
+  <hr>
+{% endfor %}
+
+<h2>❤️ FAVORITE PODCASTS</h2>
 <div>
-{% for podcast in site.data.hp_podcasts %}
+{% for podcast in site.data.favpodcasts %}
   <div>
-    {{forloop.index}} -
+    <!--<img src="img/podcast-covers/{{ podcast.name }}.webp"/>-->
     {{ podcast.name }}
-
   </div>
 {% endfor %}
 </div>
