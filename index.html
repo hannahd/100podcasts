@@ -20,7 +20,7 @@ current-number: 2
 </div>
 
 <div class="accent">
-  <h2>🎧 Currently On Podcast #{{page.current-number }}</h2>
+  <h2>🎧 Currently On Podcast&nbsp;#{{page.current-number }}</h2>
 
   {% assign index = page.current-number | minus:1 %}
   {% assign cur_podcast = site.data.podcasts[index] %}
