@@ -2,67 +2,72 @@
 layout: default
 current-number: 2
 ---
-<div class="row">
-  <div class="two columns">
-    <h1 class="logo">100</h1>
+<div class="header-row">
+  <div class="image-col">
+    <div class="logo"><img src="img/favicon.png"  width="60%" style="padding:20%;"/></div>
   </div>
-  <div class="ten columns">
-    <h1>Podcasts</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="two columns">
-    &nbsp;
-  </div>
-  <div class="ten columns">
-  <p>Challenge to try a new podcast a week for all 2019.</p>
+  <div class="content-col">
+    <h4><a href="https://twitter.com/hannahpixels" target="_blank">@hannahpixels</a>&rsquo; 2019</h4>
+    <h1>100 Podcasts</h1>
+    <p>Challenge to try two <strong>new</strong> podcasts per week in 2019.</p>
+    <p>I love podcasts. I listen to them almost every day. But I have a confession. I pretty much stick to the same <a href="#favorites">few favorites</a>. Meanwhile, all the subscriptions with intruiging descriptions and suggestions from friends languish unlistened to at the bottom of my list. This year, I'm changing that.</p>
+    <p><strong>Want to join me & start your own challenge?</strong> Message me on <a href="https://twitter.com/hannahpixels" target="_blank">Twitter</a> or fork this repo on <a href="https://github.com/hannahd/100podcasts">GitHub</a>.</p>
 
-  <p>Each podcast will be rated as:<br>
-  🥰 Loved--😄 Enjoyed--🙂 Liked--😕 Meh--😴 Snooze</p>
+    <p>Each podcast will be rated as:<br>
+    😍&nbsp;Loved, 😄&nbsp;Enjoyed, 🙂&nbsp;Liked, 😕&nbsp;Meh, or 😴&nbsp;Pass</p>
 
-  <p>Want to start your own list? Message me on Twitter <a href="https://twitter.com/hannahpixels">@hannahpixels</a> or fork this repo on <a href="https://github.com/hannahd/52podcasts">GitHub</a>.</p>
   </div>
 </div>
 
-<h2>🎧 Currently Trying #{{page.current-number }}</h2>
+<div class="accent">
+  <h2>🎧 Currently On Podcast #{{page.current-number }}</h2>
 
-{% assign index = page.current-number | minus:1 %}
-{% assign cur_podcast = site.data.podcasts[index] %}
-<div class="row">
-  <div class="two columns">
-    <a href="{{ cur_podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ cur_podcast.image }}" width="100%"/></a>
-  </div>
-  <div class="ten columns">
-    <h3> <a href="{{ cur_podcast.url }}" target="_blank">{{ cur_podcast.name }}</a></h3>
-    <p>{{ cur_podcast.tag}}</p>
-    <p>{{cur_podcast.description}}</p>
-  </div>
-</div>
-
-<h2>📝 100 Podcasts for 2019 <em>(subject to change)</em></h2>
-{% for podcast in site.data.podcasts %}
-  <div  class="row">
-
-    <div class="two columns">
-      <a href="{{ podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ podcast.image }}" width="100%"/></a>
+  {% assign index = page.current-number | minus:1 %}
+  {% assign cur_podcast = site.data.podcasts[index] %}
+  <div class="podcast-row">
+    <div class="image-col">
+      <a href="{{ cur_podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ cur_podcast.image }}" class="podcast" width="100%"/></a>
     </div>
-    <div class="ten columns">
-      <p># {{forloop.index}}</p>
+    <div class="content-col">
+      <h3> <a href="{{ cur_podcast.url }}" target="_blank">{{ cur_podcast.name }}</a></h3>
+      <p class="tags">{{ cur_podcast.tag}}</p>
+      <p>{{cur_podcast.description}}</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>🎙 100 New Podcasts in 2019 <em>(subject to change)</em></h2>
+{% for podcast in site.data.podcasts %}
+  <div  class="podcast-row">
+    <div class="image-col">
+      <a href="{{ podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ podcast.image }}" class="podcast" width="100%"/></a>
+    </div>
+    <div class="content-col">
+      <h6>#{{forloop.index}}</h6>
       <h3> <a href="{{ podcast.url }}" target="_blank">{{ podcast.name }}</a></h3>
-      <p>{{ podcast.tag}}</p>
+      <p class="tags">{{ podcast.tag}}</p>
       <p>{{ podcast.description}}</p>
     </div>
-
-  </div>
-  <hr>
-{% endfor %}
-
-<h2>❤️ FAVORITE PODCASTS</h2>
-<div>
-{% for podcast in site.data.favpodcasts %}
-  <div>
-    <!--<img src="img/podcast-covers/{{ podcast.name }}.webp"/>-->
-    {{ podcast.name }}
   </div>
 {% endfor %}
+<div class="accent" style="padding:1em;margin-top:1em">
+  <h4 style="text-align:center; margin-top:0">🚧&nbsp;&nbsp;full list coming soon&nbsp;&nbsp;🚧</h6>
 </div>
+<hr>
+
+<h2>❤️ My Favorite Podcasts</h2>
+<a id="favorites"></a>
+{% for podcast in site.data.favpodcasts %}
+<div  class="podcast-row">
+  <div class="image-col">
+    <a href="{{ podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ podcast.image }}" class="podcast" width="100%"/></a>
+  </div>
+  <div class="content-col">
+    <h3> <a href="{{ podcast.url }}" target="_blank">{{ podcast.name }}</a></h3>
+    <p class="tags">{{ podcast.tag}}</p>
+    <p>{{ podcast.description}}</p>
+  </div>
+</div>
+{% endfor %}

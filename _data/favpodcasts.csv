@@ -1,6 +1,11 @@
-name
-Reply All
-Radiolab
-StartUp
-Serial
-Revisionist History
+name,image,tag,description,url,rating,thoughts
+Reply All,replyall.webp,#tech,"""'A podcast about the internet' that is actually an unfailingly original exploration of modern life and how to survive it."" - The Guardian",https://www.gimletmedia.com/reply-all,5,
+Radiolab,radiolab.webp,#science,"An investigation told through sounds and stories, and centered around one big idea. In the Radiolab world, information sounds like music and science and culture collide. ",https://www.wnycstudios.org/shows/radiolab/projects/podcasts,5,
+StartUp,startup.webp,"#entrepreneur, #business",A series about what it's really like to start a business.,https://www.gimletmedia.com/startup,5,
+Serial,serial.webp,#crime,"Unfolds one story - a true story - over the course of a whole season. The show follows the plot and characters wherever they lead, through many surprising twists and turns. Sarah won't know what happens at the end of the story until she gets there, not long before you get there with her.",https://serialpodcast.org/,5,
+Revisionist History,revisionisthistory.webp,#history,"Journey through the overlooked and the misunderstood. Every episode re-examines something from the past—an event, a person, an idea, even a song—and asks whether we got it right the first time. Because sometimes the past deserves a second chance.",http://revisionisthistory.com/,5,
+More Perfect,moreperfect.webp,#law,Explores how cases inside the rarefied world of the Supreme Court affect our lives far away from the bench. ,https://www.wnycstudios.org/shows/radiolabmoreperfect,5,
+Without Fail,withoutfail.webp,"#leadership, #interview","Candid conversations with people who have done hard things: what worked, what didn't and why.",https://www.gimletmedia.com/without-fail,5,
+Invisibilia,invisibilia.webp,#psychology,"Unseeable forces control human behavior and shape our ideas, beliefs, and assumptions. Invisibilia—Latin for invisible things—fuses narrative storytelling with science that will make you see your own life differently.",https://www.npr.org/programs/invisibilia/,5,
+Criminal,criminal.webp,#crime,"A podcast about crime. Not so much the ""if it bleeds, it leads,"" kind of crime. Something a little more complex. Stories of people who've done wrong, been wronged, and/or gotten caught somewhere in the middle. ",https://thisiscriminal.com/,5,
+By The Book,bythebook.webp,"#selfhelp, #comedy","Half reality show, half self-help podcast, and one wild social experiment. Join comedian Jolenta Greenberg and her skeptical friend Kristen Meinzer as they live by the rules of a different self-help book each episode to figure out which ones might actually be life changing.",https://www.facebook.com/bythebookpod/,5,
