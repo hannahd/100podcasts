@@ -65,7 +65,7 @@ current-number: 3
         </span>
         {% endif %}
       </h3>
-      <p class="tags">{{ podcast.tag}}</p>
+      <p class="tags">{{ podcast.tag}} &middot; <a href="https://twitter.com/{{ podcast.twitter }}">@{{ podcast.twitter }}</a></p>
       <p>{{ podcast.description}}</p>
       {% if podcast.thoughts %}
       <h6>My Thoughts</h6>
