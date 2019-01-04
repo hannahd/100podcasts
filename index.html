@@ -1,6 +1,6 @@
 ---
 layout: default
-current-number: 2
+current-number: 3
 ---
 <div class="header-row">
   <div class="image-col">
@@ -46,14 +46,36 @@ current-number: 2
     </div>
     <div class="content-col">
       <h6>#{{forloop.index}}</h6>
-      <h3> <a href="{{ podcast.url }}" target="_blank">{{ podcast.name }}</a></h3>
+      <h3> <a href="{{ podcast.url }}" target="_blank">{{ podcast.name }}</a>
+
+        {% if podcast.rating %}
+        <span class="rating">
+          {% case podcast.rating %}
+            {% when '1' %}
+              😴
+            {% when '2' %}
+              😕
+            {% when '3' %}
+              🙂
+            {% when '4' %}
+              😄
+            {% when '5' %}
+              😍
+          {% endcase %}
+        </span>
+        {% endif %}
+      </h3>
       <p class="tags">{{ podcast.tag}}</p>
       <p>{{ podcast.description}}</p>
+      {% if podcast.thoughts %}
+      <h6>My Thoughts</h6>
+      <p>{{ podcast.thoughts}}</p>
+      {% endif %}
     </div>
   </div>
 {% endfor %}
 <div class="accent" style="padding:1em;margin-top:1em">
-  <h4 style="text-align:center; margin-top:0">🚧&nbsp;&nbsp;full list coming soon&nbsp;&nbsp;🚧</h6>
+  <h4 style="text-align:center; margin-top:0">🚧&nbsp;&nbsp;full list coming soon&nbsp;&nbsp;🚧</h4>
 </div>
 <hr>
 
