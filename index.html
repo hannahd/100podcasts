@@ -1,6 +1,6 @@
 ---
 layout: default
-current-number: 3
+current-number: 7
 ---
 <div class="header-row">
   <div class="image-col">
@@ -30,7 +30,7 @@ current-number: 3
     </div>
     <div class="content-col">
       <h3> <a href="{{ cur_podcast.url }}" target="_blank">{{ cur_podcast.name }}</a></h3>
-      <p class="tags">{{ cur_podcast.tag}}&middot; <a href="https://twitter.com/{{ podcast.twitter }}" target="_blank">@{{ podcast.twitter }}</a></p>
+      <p class="tags">{{ cur_podcast.tag}}&middot; <a href="https://twitter.com/{{ cur_podcast.twitter }}" target="_blank">@{{ cur_podcast.twitter }}</a></p>
       <p>{{cur_podcast.description}}</p>
     </div>
   </div>
