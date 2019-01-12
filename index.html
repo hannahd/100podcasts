@@ -42,13 +42,16 @@ current-number: 7
 {% for podcast in site.data.podcasts %}
   <div  class="podcast-row">
     <div class="image-col">
-      <a href="{{ podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ podcast.image }}" class="podcast" width="100%"/></a>
+      {% if podcast.image %}
+         <a href="{{ podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ podcast.image }}" class="podcast" width="100%"/></a>
+      {% endif %}
     </div>
     <div class="content-col">
+      {% if podcast.name %}
       <h6>#{{forloop.index}}</h6>
       <h3> <a href="{{ podcast.url }}" target="_blank">{{ podcast.name }}</a>
 
-        {% if podcast.rating %}
+      {% if podcast.rating %}
         <span class="rating">
           {% case podcast.rating %}
             {% when '1' %}
@@ -65,11 +68,19 @@ current-number: 7
         </span>
         {% endif %}
       </h3>
-      <p class="tags">{{ podcast.tag}} &middot; <a href="https://twitter.com/{{ podcast.twitter }}" target="_blank">@{{ podcast.twitter }}</a></p>
-      <p>{{ podcast.description}}</p>
+      {% endif %}
+      {% if podcast.tag %}
+        <p class="tags">{{ podcast.tag}} 
+        {% if podcast.twitter %}
+          &middot; <a href="https://twitter.com/{{ podcast.twitter }}" target="_blank">@{{ podcast.twitter }}</a></p>
+        {% endif %}
+      {% endif %}
+      {% if podcast.description %}
+        <p>{{ podcast.description}}</p>
+      {% endif %}
       {% if podcast.thoughts %}
-      <h6>My Thoughts</h6>
-      <p>{{ podcast.thoughts}}</p>
+        <h6>My Thoughts</h6>
+        <p>{{ podcast.thoughts}}</p>
       {% endif %}
     </div>
   </div>
