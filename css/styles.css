@@ -359,23 +359,20 @@ th {
 @media (min-width: 550px) {
   .container {
     width: 100%;
-    max-width: 600px;
-    min-width: 320px;
+    max-width: 50em;
+    min-width: 21em;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box; }
 
-  .podcast-row,
-  .header-row {
+  .podcast-row {
     display: grid;
-    grid-template-columns: .2fr 1fr;
-    grid-gap: 1rem;
+    grid-template-columns: .5fr 1fr;
     padding: 1.5em;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 4px; }
 
   .accent {
-    background-color: #FFFFFF;
     border-radius: 4px; }
 
   img.podcast {
@@ -400,7 +397,6 @@ th {
     border-radius: 0; }
 
   .accent {
-    background-color: #FFFFFF;
     border-radius: 0; }
 
   img.podcast, .logo {
@@ -422,12 +418,16 @@ th {
 .accent .podcast-row {
   padding-top: 0; }
 
+.accent {
+  background-color: #FFFFFF; }
+
 body {
   font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
   font-size: 15px;
   margin-top: 5%;
   line-height: normal;
-  background: #f6f7f8; }
+  background: #19232f;
+  color: #f0f0f0; }
 
 p {
   line-height: 1.4em;
@@ -462,11 +462,11 @@ h2 {
   font-weight: 700;
   font-size: 1.2em;
   text-transform: uppercase;
-  padding: .5em 1.5em; }
+  padding: 2.5em 1.5em 0; }
 
 hr {
   border: 0;
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid #2b3c50;
   margin: 1.5em 1.5em; }
 
 p.tags {
@@ -494,8 +494,25 @@ h2 em {
   background: #FFFFFF;
   text-align: center; }
 
-.podcast-row:hover {
-  background-color: #FFFFFF; }
+.podcast-row {
+  margin-bottom: 10px; }
+
+.content-col {
+  background-color: #FFFFFF;
+  border: 1px solid #10171e;
+  color: #000000;
+  margin-top: 2em;
+  padding: 2em 3em;
+  border-radius: 4px;
+  margin-left: -2em;
+  z-index: -1; }
+
+.header-row {
+  background-color: #FFFFFF;
+  border: 1px solid #10171e;
+  color: #000000;
+  border-radius: 4px;
+  padding: 2em 3em; }
 
 a {
   color: #0D7AFF;
@@ -508,7 +525,8 @@ a:hover {
 
 img.podcast {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 4px; }
 
 a img.podcast:hover {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18), 0 3px 5px rgba(0, 0, 0, 0.22); }

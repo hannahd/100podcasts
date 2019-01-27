@@ -1,29 +1,30 @@
 $link-color: #0D7AFF;
 $accent-color: #FFFFFF;
-$background-color: rgb(246, 247, 248);
+$background-color: #19232f;
+$font-color: #f0f0f0;
+$card-color: #FFFFFF;
+$card-font-color: #000000;
+$rounded-corners: 4px;
 
 /* For devices larger than 550px */
 @media (min-width: 550px) {
   .container {
     width: 100%;
-    max-width: 600px;
-
-    min-width: 320px;
+    max-width: 50em;
+    min-width: 21em;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box; }
-  .podcast-row,
-  .header-row{
+
+  .podcast-row{
     display: grid;
-    grid-template-columns: .2fr 1fr;
-    grid-gap: 1rem;
+    grid-template-columns: .5fr 1fr;
     padding:1.5em;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     border-radius:4px;
   }
 
   .accent{
-    background-color:$accent-color;
     border-radius:4px;
   }
 
@@ -52,8 +53,8 @@ $background-color: rgb(246, 247, 248);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     border-radius:0;
   }
+
   .accent{
-    background-color:$accent-color;
     border-radius:0;
 
   }
@@ -83,6 +84,9 @@ $background-color: rgb(246, 247, 248);
   padding-top:0;
 }
 
+.accent{
+  background-color:$accent-color;
+}
 
 
 body {
@@ -91,6 +95,7 @@ body {
   margin-top:5%;
   line-height:normal;
   background: $background-color;
+  color: $font-color;
 }
 
 p {
@@ -132,14 +137,13 @@ h2 {
   font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
   font-weight:700;
   font-size:1.2em;
-
   text-transform: uppercase;
-  padding:.5em 1.5em;
+  padding:2.5em 1.5em 0;
 }
 
 hr {
     border:0;
-    border-top: 1px solid darken($accent-color,10%);
+    border-top: 1px solid lighten($background-color,10%);
     margin: 1.5em 1.5em;
 }
 
@@ -169,32 +173,54 @@ h2 em {
   line-height: .5em;
 }
 
-
-
 .logo{
   background: $accent-color;
   text-align: center;
 
 }
 
-.podcast-row:hover{
-  background-color:$accent-color;
+.podcast-row{
+  margin-bottom:10px;
 }
+
+
+.content-col
+{
+  background-color:$card-color;
+  border: 1px solid darken($background-color,5%);
+  color: $card-font-color;
+  margin-top:2em;
+  padding: 2em 3em;
+  border-radius: 4px;
+  margin-left: -2em;
+  z-index: -1;
+}
+.header-row{
+  background-color:$card-color;
+  border: 1px solid darken($background-color,5%);
+  color: $card-font-color;
+  border-radius: 4px;
+  padding: 2em 3em;
+}
+
 
 a {
   color: $link-color;
   text-decoration:none;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-
 }
+
 a:hover {
   color: darken( $link-color, 15% );
   text-decoration:underline;
 }
+
 img.podcast{
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+   border-radius: 4px;
  }
+
 a img.podcast:hover{
   box-shadow: 0 3px 8px rgba(0,0,0,0.18), 0 3px 5px rgba(0,0,0,0.22);
 }
