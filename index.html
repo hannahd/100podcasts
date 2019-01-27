@@ -91,11 +91,7 @@ current-number: 11
         </h3>
         {% endif %}
       <h3>
-        {% if podcast.url %}
-         <a href="{{ podcast.url }}" target="_blank">
-        {% endif %}
         {{ podcast.name }}
-        {% if podcast.url %}</a>{% endif %}
       </h3>
       {% endif %}
       {% if podcast.tag %}
