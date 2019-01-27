@@ -355,65 +355,8 @@ td,
 th {
   padding: 0; }
 
-/* For devices larger than 550px */
-@media (min-width: 550px) {
-  .container {
-    width: 100%;
-    max-width: 50em;
-    min-width: 21em;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box; }
-
-  .podcast-row {
-    display: grid;
-    grid-template-columns: .5fr 1fr;
-    padding: 1.5em;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-radius: 4px; }
-
-  .accent {
-    border-radius: 4px; }
-
-  img.podcast {
-    width: 100%; } }
-/* For devices smaller than 550px */
-@media (max-width: 550px) {
-  .container {
-    width: 100%;
-    max-width: 600px;
-    min-width: 320px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box; }
-
-  .podcast-row,
-  .header-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
-    padding: 2em;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-radius: 0; }
-
-  .accent {
-    border-radius: 0; }
-
-  img.podcast, .logo {
-    width: 50%;
-    min-width: 180px;
-    min-height: 180px;
-    margin: 0 auto; }
-
-  h2 {
-    text-align: center;
-    padding: .5em 2em; } }
-@media (max-width: 320px) {
-  .podcast-row,
-  .header-row {
-    padding: 2em; } }
 .image-col {
-  text-align: center; }
+  position: relative; }
 
 .accent .podcast-row {
   padding-top: 0; }
@@ -448,8 +391,18 @@ h4 {
   margin-top: .9em; }
 
 h6 {
-  font-size: 0.8em;
+  font-size: 1em;
   text-transform: uppercase; }
+
+h6.count {
+  float: left;
+  background: #0D7AFF;
+  color: #fff;
+  border-radius: 4px 0 50%;
+  padding: 10px;
+  position: absolute;
+  margin: -.25em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
 
 h6 + p {
   margin-top: 0; }
@@ -487,8 +440,9 @@ h2 em {
 
 .rating {
   float: right;
-  font-size: 1.7em;
-  line-height: .5em; }
+  font-size: 4.7em;
+  line-height: .5em;
+  margin: -.5em; }
 
 .logo {
   background: #FFFFFF;
@@ -503,15 +457,13 @@ h2 em {
   color: #000000;
   margin-top: 2em;
   padding: 2em 3em;
-  border-radius: 4px;
-  margin-left: -2em;
-  z-index: -1; }
+  z-index: -1;
+  border-radius: 4px; }
 
 .header-row {
   background-color: #FFFFFF;
   border: 1px solid #10171e;
   color: #000000;
-  border-radius: 4px;
   padding: 2em 3em; }
 
 a {
@@ -530,5 +482,75 @@ img.podcast {
 
 a img.podcast:hover {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18), 0 3px 5px rgba(0, 0, 0, 0.22); }
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .container {
+    width: 100%;
+    max-width: 50em;
+    min-width: 21em;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; }
+
+  .podcast-row {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    padding: 1.5em;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 4px; }
+
+  img.podcast {
+    width: 100%; }
+
+  .header-row {
+    border-radius: 4px; }
+
+  .content-col {
+    margin-left: -2em; } }
+/* For devices smaller than 550px */
+@media (max-width: 550px) {
+  .container {
+    width: 100%;
+    max-width: 600px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box; }
+
+  .podcast-row {
+    padding: .5em;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 0; }
+
+  .header-row {
+    border-radius: 0; }
+
+  .rating {
+    margin: -.75em -.5em;
+    z-index: 12;
+    position: relative; }
+
+  .content-col {
+    margin-left: 0em; }
+
+  img.podcast {
+    width: 50%;
+    min-width: 180px;
+    min-height: 180px;
+    margin: 0 auto; }
+
+  h2 {
+    text-align: center;
+    padding: .5em 2em; }
+
+  .image-col {
+    margin-bottom: -4em;
+    margin-left: 1.5em;
+    margin-top: 1em; } }
+@media (max-width: 320px) {
+  .podcast-row,
+  .header-row {
+    padding: 2em; } }
 
 /*# sourceMappingURL=styles.css.map */

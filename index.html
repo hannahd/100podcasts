@@ -14,12 +14,13 @@ current-number: 11
 </div>
 
 <div>
-  <h2>Currently On Podcast&nbsp;#{{page.current-number }}</h2>
+  <h2>Currently Listening to...</h2>
 
   {% assign index = page.current-number | minus:1 %}
   {% assign podcast = site.data.podcasts[index] %}
   <div  class="podcast-row">
     <div class="image-col">
+      <h6 class="count">#{{page.current-number }}</h6>
       {% if podcast.image %}
         {% if podcast.url %}
          <a href="{{ podcast.url }}" target="_blank">
@@ -60,6 +61,9 @@ current-number: 11
 {% for podcast in site.data.podcasts %}
   <div  class="podcast-row">
     <div class="image-col">
+      {% if forloop.index < page.current-number %}
+        <h6 class="count">#{{forloop.index}}</h6>
+      {% endif %}
       {% if podcast.image %}
         {% if podcast.url %}
          <a href="{{ podcast.url }}" target="_blank">
@@ -70,18 +74,8 @@ current-number: 11
     </div>
     <div class="content-col">
       {% if podcast.name %}
-      {% if forloop.index < page.current-number %}
-        <h6>#{{forloop.index}}</h6>
-      {% endif %}
-      <h3>
-        {% if podcast.url %}
-         <a href="{{ podcast.url }}" target="_blank">
-        {% endif %}
-        {{ podcast.name }}
-        {% if podcast.url %}</a>{% endif %}
-
       {% if podcast.rating %}
-        <span class="rating">
+        <h3 class="rating">
           {% case podcast.rating %}
             {% when '1' %}
               😴
@@ -94,8 +88,14 @@ current-number: 11
             {% when '5' %}
               😍
           {% endcase %}
-        </span>
+        </h3>
         {% endif %}
+      <h3>
+        {% if podcast.url %}
+         <a href="{{ podcast.url }}" target="_blank">
+        {% endif %}
+        {{ podcast.name }}
+        {% if podcast.url %}</a>{% endif %}
       </h3>
       {% endif %}
       {% if podcast.tag %}
