@@ -375,7 +375,7 @@ th {
     border-radius: 4px; }
 
   .accent {
-    background-color: #F4F6F7;
+    background-color: #FFFFFF;
     border-radius: 4px; }
 
   img.podcast {
@@ -400,7 +400,7 @@ th {
     border-radius: 0; }
 
   .accent {
-    background-color: #F4F6F7;
+    background-color: #FFFFFF;
     border-radius: 0; }
 
   img.podcast, .logo {
@@ -426,7 +426,8 @@ body {
   font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
   font-size: 15px;
   margin-top: 5%;
-  line-height: normal; }
+  line-height: normal;
+  background: #f6f7f8; }
 
 p {
   line-height: 1.4em;
@@ -436,7 +437,7 @@ p {
   margin: 1em 0; }
 
 h1, h3 {
-  font-family: 'Roboto Slab' "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Roboto Slab', "Helvetica Neue", Arial, sans-serif;
   font-weight: 700; }
 
 h1 {
@@ -465,7 +466,7 @@ h2 {
 
 hr {
   border: 0;
-  border-top: 1px solid #d6dee2;
+  border-top: 1px solid #e6e6e6;
   margin: 1.5em 1.5em; }
 
 p.tags {
@@ -490,11 +491,11 @@ h2 em {
   line-height: .5em; }
 
 .logo {
-  background: #F4F6F7;
+  background: #FFFFFF;
   text-align: center; }
 
 .podcast-row:hover {
-  background-color: #F4F6F7; }
+  background-color: #FFFFFF; }
 
 a {
   color: #0D7AFF;

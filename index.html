@@ -1,6 +1,6 @@
 ---
 layout: default
-current-number: 7
+current-number: 11
 ---
 <div class="header-row">
   <div class="image-col">
@@ -26,7 +26,7 @@ current-number: 7
   {% assign cur_podcast = site.data.podcasts[index] %}
   <div class="podcast-row">
     <div class="image-col">
-      <a href="{{ cur_podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ cur_podcast.image }}" class="podcast" width="100%"/></a>
+      <a href="{{ cur_podcast.url }}" target="_blank"><img src="{{ cur_podcast.image }}" class="podcast" width="100%"/></a>
     </div>
     <div class="content-col">
       <h3> <a href="{{ cur_podcast.url }}" target="_blank">{{ cur_podcast.name }}</a></h3>
@@ -43,12 +43,14 @@ current-number: 7
   <div  class="podcast-row">
     <div class="image-col">
       {% if podcast.image %}
-         <a href="{{ podcast.url }}" target="_blank"><img src="img/podcast-covers/{{ podcast.image }}" class="podcast" width="100%"/></a>
+         <a href="{{ podcast.url }}" target="_blank"><img src="{{ podcast.image }}" class="podcast" width="100%"/></a>
       {% endif %}
     </div>
     <div class="content-col">
       {% if podcast.name %}
-      <h6>#{{forloop.index}}</h6>
+      {% if forloop.index < page.current-number %}
+        <h6>#{{forloop.index}}</h6>
+      {% endif %}
       <h3> <a href="{{ podcast.url }}" target="_blank">{{ podcast.name }}</a>
 
       {% if podcast.rating %}
@@ -70,7 +72,7 @@ current-number: 7
       </h3>
       {% endif %}
       {% if podcast.tag %}
-        <p class="tags">{{ podcast.tag}} 
+        <p class="tags">{{ podcast.tag}}
         {% if podcast.twitter %}
           &middot; <a href="https://twitter.com/{{ podcast.twitter }}" target="_blank">@{{ podcast.twitter }}</a></p>
         {% endif %}
@@ -85,9 +87,6 @@ current-number: 7
     </div>
   </div>
 {% endfor %}
-<div class="accent" style="padding:1em;margin-top:1em">
-  <h4 style="text-align:center; margin-top:0">🚧&nbsp;&nbsp;full list coming soon&nbsp;&nbsp;🚧</h4>
-</div>
 <hr>
 
 <h2>❤️ My Favorite Podcasts</h2>
