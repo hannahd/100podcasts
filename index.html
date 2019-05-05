@@ -17,7 +17,7 @@ current-number: 41
   <h2>Currently Listening to...</h2>
 
   {% assign index = page.current-number | minus:1 %}
-  {% assign podcast = site.data.podcasts[index] %}
+  {% assign podcast = site.data.podcasts[0] %}
   <div  class="podcast-row">
     <div class="image-col">
       <h6 class="count">#{{page.current-number }}</h6>
@@ -57,13 +57,12 @@ current-number: 41
 
 <hr>
 
-<h2>New Podcasts in 2019 <em>(subject to change)</em></h2>
+<h2>New Podcasts in 2019</h2>
 {% for podcast in site.data.podcasts %}
+  {% if forloop.index > 1 %}
   <div  class="podcast-row">
     <div class="image-col">
-      {% if forloop.index < page.current-number %}
-        <h6 class="count">#{{forloop.index}}</h6>
-      {% endif %}
+      <h6 class="count">#{{page.current-number | minus: forloop.index | plus:1}}</h6>
       {% if podcast.image %}
         {% if podcast.url %}
          <a href="{{ podcast.url }}" target="_blank">
@@ -109,6 +108,7 @@ current-number: 41
       {% endif %}
     </div>
   </div>
+  {% endif %}
 {% endfor %}
 <hr>
 
