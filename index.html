@@ -1,6 +1,6 @@
 ---
 layout: default
-current-number: 100
+current-number: 101
 ---
 <div class="header-row">
     <h4><a href="https://twitter.com/hannahpixels" target="_blank">@hannahpixels</a>&rsquo; 2019</h4>
@@ -118,7 +118,7 @@ current-number: 100
 
 <h2>Podcasts in 2019</h2>
 {% for podcast in site.data.podcasts %}
-  {% if forloop.index > 1 %}
+  {% if forloop.index >= 1 %}
   <div  class="podcast-row">
     <div class="image-col">
       <h6 class="count">#{{page.current-number | minus: forloop.index | plus:1}}</h6>
