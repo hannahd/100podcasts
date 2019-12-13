@@ -1,18 +1,20 @@
 ---
 layout: default
-current-number: 80
+current-number: 100
 ---
 <div class="header-row">
     <h4><a href="https://twitter.com/hannahpixels" target="_blank">@hannahpixels</a>&rsquo; 2019</h4>
     <h1>100 Podcasts</h1>
     <p>Challenge to try two <strong>new</strong> podcasts per week in 2019.</p>
-    <p>I love podcasts. I listen to them almost every day. But I have a confession. I pretty much stick to the same <a href="#favorites">few favorites</a>. Meanwhile, all the subscriptions with intriguing descriptions and suggestions from friends languish unlistened to at the bottom of my list. This year, I'm changing that.</p>
-    <p><strong>Want to join me & start your own challenge?</strong> Message me on <a href="https://twitter.com/hannahpixels" target="_blank">Twitter</a> or fork this repo on <a href="https://github.com/hannahd/100podcasts">GitHub</a>.</p>
+    <p>I love podcasts. I listen to them almost every day. But I have a confession. I've generally stuck to the same few favorites. Meanwhile, all the subscriptions with intriguing descriptions and suggestions from friends languished unlistened to at the bottom of my list. In 2019, I set out to change that and tried 100 DIFFERENT podcasts in 1 year. I listened to at least 3 episodes of each podcast and gave it my own personal rating:</p>
+    <p><strong>😍&nbsp;Loved, 😄&nbsp;Enjoyed, 🙂&nbsp;Liked, 😕&nbsp;Meh,</strong> or <strong>😴&nbsp;Pass</strong></p>
 
-    <p>Each podcast will be rated as:<br>
-    <strong>😍&nbsp;Loved, 😄&nbsp;Enjoyed, 🙂&nbsp;Liked, 😕&nbsp;Meh,</strong> or <strong>😴&nbsp;Pass</strong></p>
+    <h2>Some Stats:</h2>
+    <p>As of December 2019, I've listened to <strong>21 days 19 hours</strong> worth of podcasts since 2017 (Sorry PocketCasts doesn't let me isolate it to this year, hint hint...)</p>
+    <img src="img/2019PodcastChallengeStats.png" alt="27 😍Loved, 39 😄Enjoyed, 27 🙂Liked, 6 😕Meh, 1 😴Pass" />
+    <p>Yes, this is tilted pretty positive, since I really only listened to podcasts that sounded interesting to me. Also if I couldn't even get through one episode, I didn't even record it.</p>
 </div>
-
+<!--
 <div>
   <h2>Currently Listening to...</h2>
 
@@ -55,9 +57,66 @@ current-number: 80
   </div>
 </div>
 
-<hr>
+<hr>-->
 
-<h2>New Podcasts in 2019</h2>
+<h2>2019 Favorites</h2>
+<a id="favorites"></a>
+{% for podcast in site.data.favpodcasts %}
+<div  class="podcast-row">
+  <div class="image-col">
+    {% if podcast.new == "TRUE" %}
+      <h6 class="count">NEW</h6>
+    {% endif %}
+    {% if podcast.image %}
+      {% if podcast.url %}
+       <a href="{{ podcast.url }}" target="_blank">
+      {% endif %}
+         <img src="{{ podcast.image }}" class="podcast" width="100%"/>
+       {% if podcast.url %}</a>{% endif %}
+    {% endif %}
+  </div>
+  <div class="content-col">
+    {% if podcast.name %}
+    {% if podcast.rating %}
+      <h3 class="rating">
+        {% case podcast.rating %}
+          {% when '1' %}
+            😴
+          {% when '2' %}
+            😕
+          {% when '3' %}
+            🙂
+          {% when '4' %}
+            😄
+          {% when '5' %}
+            😍
+        {% endcase %}
+      </h3>
+      {% endif %}
+    <h3>
+      {{ podcast.name }}
+    </h3>
+    {% endif %}
+    {% if podcast.tag %}
+      <p class="tags">{{ podcast.tag}}
+      {% if podcast.twitter %}
+        &middot; <a href="https://twitter.com/{{ podcast.twitter }}" target="_blank">@{{ podcast.twitter }}</a></p>
+      {% endif %}
+    {% endif %}
+    {% if podcast.description %}
+      <p>{{ podcast.description}}</p>
+    {% endif %}
+    {% if podcast.thoughts %}
+      <h6>My Thoughts</h6>
+      <p>{{ podcast.thoughts}}</p>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+
+
+
+<h2>Podcasts in 2019</h2>
 {% for podcast in site.data.podcasts %}
   {% if forloop.index > 1 %}
   <div  class="podcast-row">
@@ -111,58 +170,3 @@ current-number: 80
   {% endif %}
 {% endfor %}
 <hr>
-
-<h2>My Favorite Podcasts</h2>
-<a id="favorites"></a>
-{% for podcast in site.data.favpodcasts %}
-<div  class="podcast-row">
-  <div class="image-col">
-    {% if podcast.new == "TRUE" %}
-      <h6 class="count">NEW</h6>
-    {% endif %}
-    {% if podcast.image %}
-      {% if podcast.url %}
-       <a href="{{ podcast.url }}" target="_blank">
-      {% endif %}
-         <img src="{{ podcast.image }}" class="podcast" width="100%"/>
-       {% if podcast.url %}</a>{% endif %}
-    {% endif %}
-  </div>
-  <div class="content-col">
-    {% if podcast.name %}
-    {% if podcast.rating %}
-      <h3 class="rating">
-        {% case podcast.rating %}
-          {% when '1' %}
-            😴
-          {% when '2' %}
-            😕
-          {% when '3' %}
-            🙂
-          {% when '4' %}
-            😄
-          {% when '5' %}
-            😍
-        {% endcase %}
-      </h3>
-      {% endif %}
-    <h3>
-      {{ podcast.name }}
-    </h3>
-    {% endif %}
-    {% if podcast.tag %}
-      <p class="tags">{{ podcast.tag}}
-      {% if podcast.twitter %}
-        &middot; <a href="https://twitter.com/{{ podcast.twitter }}" target="_blank">@{{ podcast.twitter }}</a></p>
-      {% endif %}
-    {% endif %}
-    {% if podcast.description %}
-      <p>{{ podcast.description}}</p>
-    {% endif %}
-    <!--{% if podcast.thoughts %}
-      <h6>My Thoughts</h6>
-      <p>{{ podcast.thoughts}}</p>
-    {% endif %}-->
-  </div>
-</div>
-{% endfor %}
